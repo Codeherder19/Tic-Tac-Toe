@@ -10,7 +10,8 @@ class Game {
   }
   checkForDraw() {
     var startingBoard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    if (!this.gameboard.includes(startingBoard);
+    if (!this.gameboard.includes(startingBoard)) {
     return "This game is a draw";
   }
+}
 }
