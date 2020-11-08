@@ -15,6 +15,11 @@ head {
   height: 0%;
 }
 
+script {
+  width: 0%;
+  height: 0%;
+}
+
 .player-column {
 display: flex;
 flex-direction: column;
