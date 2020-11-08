@@ -6,13 +6,21 @@ class Game {
     this.playerTurn = 'Player One';
     this.gameBoard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   }
+
   checkForWinconditions() {
 
   }
+
   checkForDraw() {
     var startingBoard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     if (!this.gameboard.includes(startingBoard)) {
     return "This game is a draw";
+    }
+  };
+
+  placeTokenInOpenGameBoardSlot(game, tokenLocation) {
+    if (this.player1.token && this.player2.token !== this.gameBoard[tokenLocation]) {
+      this.placePlayerToken(game, tokenLocation);
     }
   };
 
@@ -26,11 +34,20 @@ class Game {
     }
   };
 
-    alternatePlayerTurns() {
+  alternatePlayerTurns() {
     if (this.playerTurn === this.player1.id) {
     this.playerTurn = 'Player Two';
   } else if (this.playerTurn === this.player2.id) {
     this.playerTurn = 'Player One';
     }
   };
+
+
+//   PlacePlayerTokenInOpenSlotOnly(game, tokenLocation) {
+//     for (var i = 0; i < this.gameBoard.length; i++) {
+//       if (this.gameBoard[i] !== this.player1.token && this.player2.token) {
+//         this.placePlayerToken(game, tokenLocation);
+//       }
+//     }
+//   }
 }
