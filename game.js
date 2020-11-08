@@ -7,14 +7,19 @@ class Game {
     this.gameBoard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   }
 
-  checkForWinconditions() {
-
-  }
+  checkForWinConditions(currentPlayer) {
+    for (var i = 0; i < this.winConditions.length; i++) {
+      if (currentPlayer.movesMade.includes(this.winConditions[i][0]) && currentPlayer.movesMade.includes(this.winConditions[i][1]) && currentPlayer.movesMade.includes(this.winConditions[i][2])) {
+        console.log(`YOU WIN ${currentPlayer.id}, YOU SONUVABITCH!!!!`);
+      } else {
+        this.checkForDraw();
+      }
+    }
+  };
 
   checkForDraw() {
-    var startingBoard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    if (!this.gameboard.includes(startingBoard)) {
-    return "This game is a draw";
+    if (this.player1.movesMade.length + this.player2.movesMade.length === 9) {
+      console.log('This game is a draw');
     }
   };
 
@@ -27,9 +32,13 @@ class Game {
   placePlayerToken(game, tokenLocation) {
     if (game.playerTurn === this.player1.id) {
     game.gameBoard.splice(tokenLocation, 1, this.player1.token);
+    this.player1.movesMade.push(tokenLocation);
+    this.checkForWinConditions(this.player1);
     this.alternatePlayerTurns();
   } else if (game.playerTurn === this.player2.id) {
     game.gameBoard.splice(tokenLocation, 1, this.player2.token);
+    this.player2.movesMade.push(tokenLocation);
+    this.checkForWinConditions(this.player2);
     this.alternatePlayerTurns();
     }
   };
@@ -41,13 +50,4 @@ class Game {
     this.playerTurn = 'Player One';
     }
   };
-
-
-//   PlacePlayerTokenInOpenSlotOnly(game, tokenLocation) {
-//     for (var i = 0; i < this.gameBoard.length; i++) {
-//       if (this.gameBoard[i] !== this.player1.token && this.player2.token) {
-//         this.placePlayerToken(game, tokenLocation);
-//       }
-//     }
-//   }
 }
