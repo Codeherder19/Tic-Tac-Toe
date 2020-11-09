@@ -6,9 +6,10 @@ class Player {
     this.movesMade = [];
   }
   saveToStorage() {
-
+    localStorage.setItem(`${this.id} numberOfWins`, JSON.stringify(this.numOfWins));
   }
-  retrieveWinsFromStorage() {
 
+  retrieveWinsFromStorage() {
+    this.numOfWins = JSON.parse(localStorage.getItem(`${this.id} numberOfWins`)); 
   }
 }
