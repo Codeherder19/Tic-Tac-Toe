@@ -1,23 +1,14 @@
-* {
-  display: flex;
-  justify-content: space-between;
+html {
   height: 100%;
   width: 100%;
 }
 
-link {
-  width: 0%;
-  height: 0%;
-}
-
-head {
-  width: 0%;
-  height: 0%;
-}
-
-script {
-  width: 0%;
-  height: 0%;
+body {
+  display: flex;
+  justify-content: space-between;
+  font-family: fantasy;
+  height: 100%;
+  width: 100%;
 }
 
 .player-column {
@@ -26,11 +17,21 @@ flex-direction: column;
 justify-content: flex-start;
 align-items: center;
 height: 100%;
-width: 45%;
+width: 25%;
 background: linear-gradient(#e66465, #9198e5);
 }
 
 h1 {
+  color: #A569BD;
+  margin-left: 35%;
+  height: 5%;
+  width: 70%;
+  font-size: 300%;
+}
+
+.player-1-win-total,
+.player-2-win-total {
+  color: #E67E22;
   display: flex;
   align-self: flex-end;
   height: 5%;
@@ -46,75 +47,79 @@ h1 {
 
 .game-column {
 height: 100%;
+width: 60%;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+background-image: url(https://i.cartoonnetwork.com/backgrounds/static/images/at/AT_BG10.jpg);
+}
+
+#player1-column {
+  background: linear-gradient(#884EA0, #DAF7A6, #F7DC6F);
+}
+
+#player2-column {
+  background: linear-gradient(#F7DC6F, #DAF7A6, #884EA0);
 }
 
 .game-board {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  width: 60%;
-  height: 60%;
-}
-
-.game-square {
-height: 32.65%;
-width: 32.65%;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  margin-top: 10%;
+  margin-bottom: 20%;
+  width: 45%;
+  height: 50%;
 }
 
 #top-left {
-  border-right: solid;
-  border-bottom: solid;
+  border-right: solid #E67E22;
+  border-bottom: solid #E67E22;
 }
 
 #top-center {
-  border-bottom: solid;
-  border-right: solid;
-  border-left: solid;
+  border-bottom: solid #E67E22;
+  border-right: solid #E67E22;
+  border-left: solid #E67E22;
 }
 
 #top-right {
-  border-left: solid;
-  border-bottom: solid;
+  border-left: solid #E67E22;
+  border-bottom: solid #E67E22;
 }
 
 #center-left {
-  border-top: solid;
-  border-right: solid;
-  border-bottom: solid;
+  border-top: solid #E67E22;
+  border-right: solid #E67E22;
+  border-bottom: solid #E67E22;
 }
 
 #dead-center {
-  border: solid;
+  border: solid #E67E22;
 }
 
 #center-right {
-  border-top: solid;
-  border-left: solid;
-  border-bottom: solid;
+  border-top: solid #E67E22;
+  border-left: solid #E67E22;
+  border-bottom: solid #E67E22;
 }
 
 #bottom-left {
-  border-top: solid;
-  border-right: solid;
+  border-top: solid #E67E22;
+  border-right: solid #E67E22;
 }
 
 #bottom-center {
-  border-top: solid;
-  border-right: solid;
-  border-left: solid;
+  border-top: solid #E67E22;
+  border-right: solid #E67E22;
+  border-left: solid #E67E22;
 }
 
 #bottom-right {
-  border-top: solid;
-  border-left: solid;
+  border-top: solid #E67E22;
+  border-left: solid #E67E22;
 }
 
-body {
-  height: 100%;
-  width: 100%;
+.in-game-token {
+
 }

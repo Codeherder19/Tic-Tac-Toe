@@ -1,8 +1,8 @@
 class Game {
   constructor() {
     this.winConditions = [[2, 4, 6],[0, 1, 2],[3, 4, 5],[0, 4, 8],[6, 7, 8],[0, 3, 6],[1, 4, 7],[2, 5, 8]];
-    this.player1 = new Player('Player One', '☠️');
-    this.player2 = new Player('Player Two', '👹');
+    this.player1 = new Player('Player One', '⚔️');
+    this.player2 = new Player('Player Two', '🛡');
     this.playerTurn = this.player1.id;
     this.gameBoard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   }
