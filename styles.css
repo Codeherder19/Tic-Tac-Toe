@@ -6,6 +6,7 @@ html {
 body {
   display: flex;
   justify-content: space-between;
+  font-family: fantasy;
   height: 100%;
   width: 100%;
 }
@@ -21,6 +22,7 @@ background: linear-gradient(#e66465, #9198e5);
 }
 
 h1 {
+  color: #A569BD;
   margin-left: 35%;
   height: 5%;
   width: 70%;
@@ -71,51 +73,51 @@ background-image: url(https://i.cartoonnetwork.com/backgrounds/static/images/at/
 }
 
 #top-left {
-  border-right: solid;
-  border-bottom: solid;
+  border-right: solid #E67E22;
+  border-bottom: solid #E67E22;
 }
 
 #top-center {
-  border-bottom: solid;
-  border-right: solid;
-  border-left: solid;
+  border-bottom: solid #E67E22;
+  border-right: solid #E67E22;
+  border-left: solid #E67E22;
 }
 
 #top-right {
-  border-left: solid;
-  border-bottom: solid;
+  border-left: solid #E67E22;
+  border-bottom: solid #E67E22;
 }
 
 #center-left {
-  border-top: solid;
-  border-right: solid;
-  border-bottom: solid;
+  border-top: solid #E67E22;
+  border-right: solid #E67E22;
+  border-bottom: solid #E67E22;
 }
 
 #dead-center {
-  border: solid;
+  border: solid #E67E22;
 }
 
 #center-right {
-  border-top: solid;
-  border-left: solid;
-  border-bottom: solid;
+  border-top: solid #E67E22;
+  border-left: solid #E67E22;
+  border-bottom: solid #E67E22;
 }
 
 #bottom-left {
-  border-top: solid;
-  border-right: solid;
+  border-top: solid #E67E22;
+  border-right: solid #E67E22;
 }
 
 #bottom-center {
-  border-top: solid;
-  border-right: solid;
-  border-left: solid;
+  border-top: solid #E67E22;
+  border-right: solid #E67E22;
+  border-left: solid #E67E22;
 }
 
 #bottom-right {
-  border-top: solid;
-  border-left: solid;
+  border-top: solid #E67E22;
+  border-left: solid #E67E22;
 }
 
 .in-game-token {
