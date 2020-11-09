@@ -21,6 +21,15 @@ background: linear-gradient(#e66465, #9198e5);
 }
 
 h1 {
+  margin-left: 35%;
+  height: 5%;
+  width: 70%;
+  font-size: 300%;
+}
+
+.player-1-win-total,
+.player-2-win-total {
+  color: #E67E22;
   display: flex;
   align-self: flex-end;
   height: 5%;
@@ -36,24 +45,29 @@ h1 {
 
 .game-column {
 height: 100%;
+width: 60%;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+background-image: url(https://i.cartoonnetwork.com/backgrounds/static/images/at/AT_BG10.jpg);
+}
+
+#player1-column {
+  background: linear-gradient(#884EA0, #DAF7A6, #F7DC6F);
+}
+
+#player2-column {
+  background: linear-gradient(#F7DC6F, #DAF7A6, #884EA0);
 }
 
 .game-board {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  /* width: 100%;
-  height: 100%; */
-}
-
-.game-square {
-height: 32.65%;
-width: 32.65%;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  margin-top: 10%;
+  margin-bottom: 20%;
+  width: 45%;
+  height: 50%;
 }
 
 #top-left {
