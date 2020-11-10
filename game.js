@@ -11,7 +11,6 @@ class Game {
   checkForWinOrDrawConditions(currentPlayer) {
     for (var i = 0; i < this.winConditions.length; i++) {
       if (currentPlayer.movesMade.includes(this.winConditions[i][0]) && currentPlayer.movesMade.includes(this.winConditions[i][1]) && currentPlayer.movesMade.includes(this.winConditions[i][2])) {
-        console.log(`${currentPlayer.id} WINS!!!`)
         currentPlayer.numOfWins++;
         currentPlayer.saveToStorage();
         this.isThereAWinner = true;
@@ -35,7 +34,6 @@ class Game {
 
   checkForDraw() {
     if (this.player1.movesMade.length + this.player2.movesMade.length === 9) {
-      console.log('This game is a draw!!!');
     }
   };
 
