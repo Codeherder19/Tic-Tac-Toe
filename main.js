@@ -4,6 +4,9 @@ var player1Token = document.querySelector('#shield');
 var player2Token = document.querySelector('#swords');
 var tokenSquare = document.querySelectorAll('.game-square');
 var currentTurnDisplay = document.querySelector('.current-player-turn');
+var player1WinDisplay = document.querySelector('.player-1-score');
+var player2WinDisplay = document.querySelector('.player-2-score');
+
 
 ticTacToeBoard.addEventListener('click', placeTokenOnGameBoard);
 window.addEventListener('load', persistPlayerWinsOnPageReload);
@@ -13,6 +16,7 @@ window.addEventListener('load', persistPlayerWinsOnPageReload);
 
 function placeTokenOnGameBoard(event) {
   currentGame.placeTokenInOpenGameBoardSlot(event.target.id);
+  displayCurrentPlayerWins();
   alternateAndDisplayPlayerTokens();
   currentGame.alternatePlayerTurns();
   displayCurrentPlayersTurn();
@@ -36,6 +40,14 @@ function alternateAndDisplayPlayerTokens() {
 };
 
 function persistPlayerWinsOnPageReload() {
+  currentGame.player1.saveToStorage();
+  currentGame.player2.saveToStorage();
   currentGame.player1.retrieveWinsFromStorage();
   currentGame.player2.retrieveWinsFromStorage();
+  displayCurrentPlayerWins();
+};
+
+function displayCurrentPlayerWins() {
+    player1WinDisplay.innerText = currentGame.player1.numOfWins;
+    player2WinDisplay.innerText = currentGame.player2.numOfWins;
 };

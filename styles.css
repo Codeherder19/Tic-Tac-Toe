@@ -21,6 +21,10 @@ width: 25%;
 background: linear-gradient(#e66465, #9198e5);
 }
 
+.wins {
+
+}
+
 h1 {
   color: #A569BD;
   margin-left: 35%;
@@ -29,17 +33,16 @@ h1 {
   font-size: 300%;
 }
 
-.player-1-win-total,
-.player-2-win-total {
+h2 {
   color: #E67E22;
-  display: flex;
-  align-self: flex-end;
+  margin-left: 60%;
   height: 5%;
   width: 70%;
-  font-size: 300%;
+  font-size: 500%;
 }
 
 .player-token {
+  align-items: center;
   height: 10%;
   width: 25%;
   font-size: 500%;
