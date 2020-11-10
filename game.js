@@ -11,10 +11,10 @@ class Game {
     var isThereAWinner = false;
     for (var i = 0; i < this.winConditions.length; i++) {
       if (currentPlayer.movesMade.includes(this.winConditions[i][0]) && currentPlayer.movesMade.includes(this.winConditions[i][1]) && currentPlayer.movesMade.includes(this.winConditions[i][2])) {
-        currentPlayer.numOfWins++;
-        isThereAWinner = true;
         console.log(`${currentPlayer.id} WINS!!!`)
+        currentPlayer.numOfWins++;
         currentPlayer.saveToStorage();
+        isThereAWinner = true;
       }
     }
     if (isThereAWinner === false) {
@@ -50,12 +50,12 @@ class Game {
     this.gameBoard.splice(tokenLocation, 1, this.player1.token);
     this.player1.movesMade.push(tokenLocation);
     this.checkForWinOrDrawConditions(this.player1);
-    this.alternatePlayerTurns();
+    // this.alternatePlayerTurns();
   } else if (this.playerTurn === this.player2.id) {
     this.gameBoard.splice(tokenLocation, 1, this.player2.token);
     this.player2.movesMade.push(tokenLocation);
     this.checkForWinOrDrawConditions(this.player2);
-    this.alternatePlayerTurns();
+    // this.alternatePlayerTurns();
     }
   };
 
