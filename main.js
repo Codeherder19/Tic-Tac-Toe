@@ -18,30 +18,38 @@ function placeTokenOnGameBoard(event) {
   currentGame.placeTokenInOpenGameBoardSlot(event.target.id);
   displayCurrentPlayerWins();
   alternateAndDisplayPlayerTokens();
+  if (currentGame.isThereAWinner === false && currentGame.player1.movesMade.length + currentGame.player2.movesMade.length === 9) {
+    currentTurnDisplay.innerText = 'Oh no, draw game!';
+  } else if (currentGame.isThereAWinner === true) {
+    currentTurnDisplay.innerText = `${currentGame.playerTurn} WINS!!!`;
+  } else {
   currentGame.alternatePlayerTurns();
   displayCurrentPlayersTurn();
+  }
 };
 
 function displayCurrentPlayersTurn() {
   if (currentGame.playerTurn === currentGame.player1.id) {
-    currentTurnDisplay.innerText = `It's ${currentGame.player1.id}'s turn!'`
+    currentTurnDisplay.innerText = `It's ${currentGame.player1.id}'s turn!'`;
   }
   else if (currentGame.playerTurn === currentGame.player2.id) {
-    currentTurnDisplay.innerText = `It's ${currentGame.player2.id}'s turn!'`
+    currentTurnDisplay.innerText = `It's ${currentGame.player2.id}'s turn!'`;
   }
 };
 
 function alternateAndDisplayPlayerTokens() {
   if (currentGame.playerTurn === currentGame.player1.id) {
-    tokenSquare[event.target.id].innerHTML = `<div class='in-game-token'>${currentGame.player1.token}</div>`
+    tokenSquare[event.target.id].innerHTML = `<div class='in-game-token'>${currentGame.player1.token}</div>`;
   } else if (currentGame.playerTurn === currentGame.player2.id) {
-    tokenSquare[event.target.id].innerHTML = `<div class='in-game-token'>${currentGame.player2.token}</div>`
+    tokenSquare[event.target.id].innerHTML = `<div class='in-game-token'>${currentGame.player2.token}</div>`;
   }
 };
 
 function persistPlayerWinsOnPageReload() {
-  currentGame.player1.saveToStorage();
-  currentGame.player2.saveToStorage();
+  if (localStorage.length < 2) {
+    currentGame.player1.saveToStorage();
+    currentGame.player2.saveToStorage();
+  }
   currentGame.player1.retrieveWinsFromStorage();
   currentGame.player2.retrieveWinsFromStorage();
   displayCurrentPlayerWins();

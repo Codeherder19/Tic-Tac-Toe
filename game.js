@@ -35,7 +35,7 @@ class Game {
 
   checkForDraw() {
     if (this.player1.movesMade.length + this.player2.movesMade.length === 9) {
-      console.log('This game is a draw');
+      console.log('This game is a draw!!!');
     }
   };
 
@@ -50,12 +50,10 @@ class Game {
     this.gameBoard.splice(tokenLocation, 1, this.player1.token);
     this.player1.movesMade.push(parseInt(tokenLocation));
     this.checkForWinOrDrawConditions(this.player1);
-    // this.alternatePlayerTurns();
   } else if (this.playerTurn === this.player2.id) {
     this.gameBoard.splice(tokenLocation, 1, this.player2.token);
     this.player2.movesMade.push(parseInt(tokenLocation));
     this.checkForWinOrDrawConditions(this.player2);
-    // this.alternatePlayerTurns();
     }
   };
 
