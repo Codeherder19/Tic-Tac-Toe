@@ -48,12 +48,12 @@ class Game {
   placePlayerToken(tokenLocation) {
     if (this.playerTurn === this.player1.id) {
     this.gameBoard.splice(tokenLocation, 1, this.player1.token);
-    this.player1.movesMade.push(tokenLocation);
+    this.player1.movesMade.push(parseInt(tokenLocation));
     this.checkForWinOrDrawConditions(this.player1);
     // this.alternatePlayerTurns();
   } else if (this.playerTurn === this.player2.id) {
     this.gameBoard.splice(tokenLocation, 1, this.player2.token);
-    this.player2.movesMade.push(tokenLocation);
+    this.player2.movesMade.push(parseInt(tokenLocation));
     this.checkForWinOrDrawConditions(this.player2);
     // this.alternatePlayerTurns();
     }

@@ -16,7 +16,7 @@ window.addEventListener('load', persistPlayerWinsOnPageReload);
 
 function placeTokenOnGameBoard(event) {
   currentGame.placeTokenInOpenGameBoardSlot(event.target.id);
-  // displayCurrentPlayerWins();
+  displayCurrentPlayerWins();
   alternateAndDisplayPlayerTokens();
   currentGame.alternatePlayerTurns();
   displayCurrentPlayersTurn();
@@ -40,13 +40,14 @@ function alternateAndDisplayPlayerTokens() {
 };
 
 function persistPlayerWinsOnPageReload() {
+  currentGame.player1.saveToStorage();
+  currentGame.player2.saveToStorage();
   currentGame.player1.retrieveWinsFromStorage();
   currentGame.player2.retrieveWinsFromStorage();
+  displayCurrentPlayerWins();
 };
 
-// function displayCurrentPlayerWins() {
-//   if (currentGame.isThereAWinner === true) {
-//     player1WinDisplay.innerText = currentGame.player1.numOfWins;
-//     player2WinDisplay.innerText = currentGame.player2.numOfWins;
-//   }
-//};
+function displayCurrentPlayerWins() {
+    player1WinDisplay.innerText = currentGame.player1.numOfWins;
+    player2WinDisplay.innerText = currentGame.player2.numOfWins;
+};
