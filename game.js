@@ -8,15 +8,17 @@ class Game {
   }
 
   checkForWinOrDrawConditions(currentPlayer) {
+    var isThereAWinner = false;
     for (var i = 0; i < this.winConditions.length; i++) {
       if (currentPlayer.movesMade.includes(this.winConditions[i][0]) && currentPlayer.movesMade.includes(this.winConditions[i][1]) && currentPlayer.movesMade.includes(this.winConditions[i][2])) {
         currentPlayer.numOfWins++;
+        isThereAWinner = true;
         console.log(`${currentPlayer.id} WINS!!!`)
         currentPlayer.saveToStorage();
-        return 'You win you cool person!'
-      } else {
-        this.checkForDraw();
       }
+    }
+    if (isThereAWinner === false) {
+      this.checkForDraw();
     }
   };
 
