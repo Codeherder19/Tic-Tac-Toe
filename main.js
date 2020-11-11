@@ -1,7 +1,5 @@
 var currentGame = new Game;
 var ticTacToeBoard = document.querySelector('.game-board');
-var player1Token = document.querySelector('#shield');
-var player2Token = document.querySelector('#swords');
 var tokenSquares = document.querySelectorAll('.game-square');
 var currentTurnDisplay = document.querySelector('.current-player-turn');
 var player1WinDisplay = document.querySelector('.player-1-score');
@@ -14,58 +12,50 @@ function placeTokenOnGameBoard(event) {
   currentGame.placeTokenInOpenGameBoardSlot(event.target.id);
   displayCurrentPlayerWins();
   alternateAndDisplayPlayerTokens();
-  if (currentGame.isThereAWinner === false && currentGame.player1.movesMade.length + currentGame.player2.movesMade.length === 9) {
-    currentTurnDisplay.innerText = 'Oh no, draw game!';
-    disableBoardAtGameEndEnableBoardAtGameStart();
-    setTimeout(startNewGame, 4000);
-  } else if (currentGame.isThereAWinner === true) {
-    currentTurnDisplay.innerText = `${currentGame.playerTurn} WINS!!!`;
-    disableBoardAtGameEndEnableBoardAtGameStart();
-    setTimeout(startNewGame, 4000);
-  } else {
-  currentGame.alternatePlayerTurns();
-  displayCurrentPlayersTurn();
-  }
+  displayPlayerTurnOrWinOrDrawMessage()
 };
 
-function displayCurrentPlayersTurn() {
-  if (currentGame.playerTurn === currentGame.player1.id) {
-    currentTurnDisplay.innerText = `It's ${currentGame.player1.id}'s turn!'`;
-  }
-  else if (currentGame.playerTurn === currentGame.player2.id) {
-    currentTurnDisplay.innerText = `It's ${currentGame.player2.id}'s turn!'`;
-  }
+function displayCurrentPlayerWins() {
+  currentGame.player1.retrieveWinsFromStorage();
+  currentGame.player2.retrieveWinsFromStorage();
+  player1WinDisplay.innerText = currentGame.player1.numOfWins;
+  player2WinDisplay.innerText = currentGame.player2.numOfWins;
 };
 
 function alternateAndDisplayPlayerTokens() {
   if (currentGame.playerTurn === currentGame.player1.id) {
     tokenSquares[event.target.id].innerHTML = `<div class='in-game-token'>${currentGame.player1.token}</div>`;
-  } else if (currentGame.playerTurn === currentGame.player2.id) {
+  } else if
+    (currentGame.playerTurn === currentGame.player2.id) {
     tokenSquares[event.target.id].innerHTML = `<div class='in-game-token'>${currentGame.player2.token}</div>`;
   }
 };
 
-function persistPlayerWinsOnPageReload() {
-  if (localStorage.length < 2) {
-    currentGame.player1.saveToStorage();
-    currentGame.player2.saveToStorage();
+function displayPlayerTurnOrWinOrDrawMessage() {
+  if (currentGame.isThereAWinner === false && currentGame.player1.movesMade.length + currentGame.player2.movesMade.length === 9) {
+    currentTurnDisplay.innerText = 'Oh no, draw game!';
+    disableBoardAtGameEndEnableBoardAtGameStart();
+    setTimeout(startNewGame, 4000);
+  } else if
+    (currentGame.isThereAWinner === true) {
+    currentTurnDisplay.innerText = `${currentGame.playerTurn} WINS!!!`;
+    disableBoardAtGameEndEnableBoardAtGameStart();
+    setTimeout(startNewGame, 4000);
+  } else {
+    currentGame.alternatePlayerTurns();
+    displayCurrentPlayersTurn();
   }
-  currentGame.player1.retrieveWinsFromStorage();
-  currentGame.player2.retrieveWinsFromStorage();
-  displayCurrentPlayerWins();
 };
 
-function displayCurrentPlayerWins() {
-    currentGame.player1.retrieveWinsFromStorage();
-    currentGame.player2.retrieveWinsFromStorage();
-    player1WinDisplay.innerText = currentGame.player1.numOfWins;
-    player2WinDisplay.innerText = currentGame.player2.numOfWins;
+function disableBoardAtGameEndEnableBoardAtGameStart() {
+  ticTacToeBoard.classList.toggle('disable-cursor');
 };
 
 function startNewGame() {
   currentGame.resetGameBoard();
   clearGameBoard();
   disableBoardAtGameEndEnableBoardAtGameStart();
+  displayCurrentPlayersTurn();
 };
 
 function clearGameBoard() {
@@ -74,6 +64,21 @@ function clearGameBoard() {
   }
 };
 
-function disableBoardAtGameEndEnableBoardAtGameStart() {
-  ticTacToeBoard.classList.toggle('disable-cursor');
+function displayCurrentPlayersTurn() {
+  if (currentGame.playerTurn === currentGame.player1.id) {
+    currentTurnDisplay.innerText = `It's ${currentGame.player1.id}'s turn!'`;
+  } else if
+    (currentGame.playerTurn === currentGame.player2.id) {
+    currentTurnDisplay.innerText = `It's ${currentGame.player2.id}'s turn!'`;
+  }
+};
+
+function persistPlayerWinsOnPageReload() {
+  if (localStorage.length < 2) {
+    currentGame.player1.saveToStorage();
+    currentGame.player2.saveToStorage();
+  }
+    currentGame.player1.retrieveWinsFromStorage();
+    currentGame.player2.retrieveWinsFromStorage();
+    displayCurrentPlayerWins();
 };

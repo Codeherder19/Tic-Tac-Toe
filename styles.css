@@ -12,17 +12,13 @@ body {
 }
 
 .player-column {
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-align-items: center;
-height: 100%;
-width: 25%;
-background: linear-gradient(#e66465, #9198e5);
-}
-
-.wins {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 25%;
+  background: linear-gradient(#e66465, #9198e5);
 }
 
 h1 {
@@ -59,10 +55,12 @@ background-image: url(https://i.cartoonnetwork.com/backgrounds/static/images/at/
 }
 
 #player1-column {
+  border-right: solid 1.5em;
   background: linear-gradient(#884EA0, #DAF7A6, #F7DC6F);
 }
 
 #player2-column {
+  border-left: solid 1.5em;
   background: linear-gradient(#F7DC6F, #DAF7A6, #884EA0);
 }
 
