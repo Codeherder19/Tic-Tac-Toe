@@ -133,3 +133,7 @@ background-image: url(https://i.cartoonnetwork.com/backgrounds/static/images/at/
 .in-game-token {
   font-size: 600%;
 }
+
+.disable-cursor {
+  pointer-events: none;
+}

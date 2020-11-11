@@ -22,14 +22,7 @@ class Game {
   };
 
   resetGameBoard() {
-    var newGameBoard = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    this.player1.movesMade.length = 0;
-    this.player2.movesMade.length = 0;
-    this.gameBoard.length = 0;
-    this.playerTurn = this.player1.id;
-    for (var i = 0; i < newGameBoard.length; i++) {
-      this.gameBoard.push(newGameBoard[i]);
-    }
+    currentGame = new Game;
   };
 
   checkForDraw() {
