@@ -10,17 +10,17 @@ var player2WinDisplay = document.querySelector('.player-2-score');
 ticTacToeBoard.addEventListener('click', placeTokenOnGameBoard);
 window.addEventListener('load', persistPlayerWinsOnPageReload);
 
-
-
 function placeTokenOnGameBoard(event) {
   currentGame.placeTokenInOpenGameBoardSlot(event.target.id);
   displayCurrentPlayerWins();
   alternateAndDisplayPlayerTokens();
   if (currentGame.isThereAWinner === false && currentGame.player1.movesMade.length + currentGame.player2.movesMade.length === 9) {
     currentTurnDisplay.innerText = 'Oh no, draw game!';
+    disableBoardAtGameEndEnableBoardAtGameStart();
     setTimeout(startNewGame, 4000);
   } else if (currentGame.isThereAWinner === true) {
     currentTurnDisplay.innerText = `${currentGame.playerTurn} WINS!!!`;
+    disableBoardAtGameEndEnableBoardAtGameStart();
     setTimeout(startNewGame, 4000);
   } else {
   currentGame.alternatePlayerTurns();
@@ -56,6 +56,8 @@ function persistPlayerWinsOnPageReload() {
 };
 
 function displayCurrentPlayerWins() {
+    currentGame.player1.retrieveWinsFromStorage();
+    currentGame.player2.retrieveWinsFromStorage();
     player1WinDisplay.innerText = currentGame.player1.numOfWins;
     player2WinDisplay.innerText = currentGame.player2.numOfWins;
 };
@@ -63,10 +65,15 @@ function displayCurrentPlayerWins() {
 function startNewGame() {
   currentGame.resetGameBoard();
   clearGameBoard();
-}
+  disableBoardAtGameEndEnableBoardAtGameStart();
+};
 
 function clearGameBoard() {
   for (var i = 0; i < tokenSquares.length; i++) {
     tokenSquares[i].innerText = '';
   }
-}
+};
+
+function disableBoardAtGameEndEnableBoardAtGameStart() {
+  ticTacToeBoard.classList.toggle('disable-cursor');
+};
