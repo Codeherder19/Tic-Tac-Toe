@@ -16,6 +16,8 @@
 ## Instructions for running/viewing the project:
 What do you know, it's Tic-Tac-Toe! Swords vs Shield! You know how to play this classic game! Just click on a square and your token will be placed in the appropriate square. This is a two player version, no AI computer to play against. The current player's turn will be displayed at the top of the screen. When a win occurs, the winning player will be declared at the top of the screen. If there is a draw, you will be notified as well. Whether win or draw, simply wait a few seconds and the game will restart. Each players score will persist across each new game and page reload/refresh as well via local storage.
 
+![Screenshot of Tic Tac Toe Board](Screen Shot 2020-11-10 at 9.11.35 PM)
+
 ### Deploy Links
 [Find the repo here](https://github.com/Codeherder19/Tic-Tac-Toe.git)
 
