@@ -1,6 +1,6 @@
+var tokenSquares = document.querySelectorAll('.game-square');
 var currentGame = new Game;
 var ticTacToeBoard = document.querySelector('.game-board');
-var tokenSquares = document.querySelectorAll('.game-square');
 var currentTurnDisplay = document.querySelector('.current-player-turn');
 var player1WinDisplay = document.querySelector('.player-1-score');
 var player2WinDisplay = document.querySelector('.player-2-score');
